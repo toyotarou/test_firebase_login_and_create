@@ -4,8 +4,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'constants/routes.dart' as routes;
 import 'firebase_options.dart';
-import 'main_model.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,69 +18,34 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
+    return const MaterialApp(home: MyHomePage(title: ''));
   }
 }
 
 class MyHomePage extends ConsumerWidget {
-  MyHomePage({super.key, required this.title});
+  const MyHomePage({super.key, required this.title});
 
   final String title;
 
-  ///
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final mainModel = ref.watch(mainProvider);
-
-    final emailEditingController = TextEditingController(text: mainModel.email);
-    final passwordEditingController = TextEditingController(text: mainModel.password);
-
     return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
-      body: Column(
-        children: [
-          const SizedBox(height: 10),
-          TextFormField(
-            keyboardType: TextInputType.emailAddress,
-            controller: emailEditingController,
-            onChanged: (text) => mainModel.email = text,
-          ),
-          const SizedBox(height: 10),
-          TextFormField(
-            keyboardType: TextInputType.visiblePassword,
-            controller: passwordEditingController,
-            onChanged: (text) => mainModel.password = text,
-
-            //
-            obscureText: mainModel.isObscure,
-            decoration: InputDecoration(
-              suffix: InkWell(
-                onTap: mainModel.toggleIsObscure,
-                child: (mainModel.isObscure) ? const Icon(Icons.visibility_off) : const Icon(Icons.visibility),
+        appBar: AppBar(title: Text(title)),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              ElevatedButton(
+                onPressed: () => routes.toSignupPage(context: context),
+                child: const Text('Signup'),
               ),
-            ),
+              ElevatedButton(
+                onPressed: () => routes.toLoginPage(context: context),
+                child: const Text('Login'),
+              ),
+              const Text('Nullです')
+            ],
           ),
-          const SizedBox(height: 10),
-          Center(
-            child: (mainModel.currentUser == null) ? const Text('null') : const Text('not null'),
-          ),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          return await mainModel.createUser(context: context);
-        },
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-    );
+        ));
   }
 }

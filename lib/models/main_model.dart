@@ -4,9 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-//import 'package:uuid/uuid.dart';
 
-import 'domain/firestore_user/firestore_user.dart';
+import '../domain/firestore_user/firestore_user.dart';
 
 final mainProvider = ChangeNotifierProvider((ref) => MainModel());
 
@@ -22,10 +21,7 @@ class MainModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  ///
   Future<void> createFirestoreUser({required BuildContext context, required String uid}) async {
-//    final v4 = const Uuid().v4();
-
     final now = Timestamp.now();
 
     final firestoreUser = FirestoreUser(
