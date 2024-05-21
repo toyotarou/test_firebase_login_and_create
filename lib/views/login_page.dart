@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../components/rounded_password_field.dart';
+import '../components/rounded_text_field.dart';
 import '../models/login_model.dart';
 
 class LoginPage extends ConsumerWidget {
@@ -20,24 +22,22 @@ class LoginPage extends ConsumerWidget {
       body: Column(
         children: [
           const SizedBox(height: 10),
-          TextFormField(
-            keyboardType: TextInputType.emailAddress,
-            controller: emailEditingController,
+          RoundedTextField(
+            keybordType: TextInputType.emailAddress,
             onChanged: (text) => loginModel.email = text,
+            controller: emailEditingController,
+            color: Colors.white,
+            borderColor: Colors.black,
           ),
           const SizedBox(height: 10),
-          TextFormField(
-            keyboardType: TextInputType.visiblePassword,
-            controller: passwordEditingController,
+          RoundedPasswordField(
             onChanged: (text) => loginModel.password = text,
-            //
+            controller: passwordEditingController,
             obscureText: loginModel.isObscure,
-            decoration: InputDecoration(
-              suffix: InkWell(
-                onTap: loginModel.toggleIsObscure,
-                child: (loginModel.isObscure) ? const Icon(Icons.visibility_off) : const Icon(Icons.visibility),
-              ),
-            ),
+            toggleIsObscureText: loginModel.toggleIsObscure,
+            color: Colors.white,
+            borderColor: Colors.black,
+            shadowColor: Colors.purpleAccent,
           ),
           const SizedBox(height: 10),
           Center(child: (loginModel.currentUser == null) ? const Text('null') : const Text('not null')),
