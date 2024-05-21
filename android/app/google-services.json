@@ -1,0 +1,105 @@
+{
+  "project_info": {
+    "project_number": "470663779758",
+    "project_id": "hideyuki-firebase2",
+    "storage_bucket": "hideyuki-firebase2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:470663779758:android:3c296bad0effc784bde43f",
+        "android_client_info": {
+          "package_name": "com.example.test_cloud_function_cron_periodic"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwziwM-SSA_MakFzHrlSBgJCDaHLMlklw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:470663779758:android:ee09ab89221cd7e9bde43f",
+        "android_client_info": {
+          "package_name": "com.example.test_firebase_login_and_create"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwziwM-SSA_MakFzHrlSBgJCDaHLMlklw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:470663779758:android:a194e1c29ec0c2cabde43f",
+        "android_client_info": {
+          "package_name": "com.example.test_minimal_chat_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwziwM-SSA_MakFzHrlSBgJCDaHLMlklw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:470663779758:android:17349bc98e304490bde43f",
+        "android_client_info": {
+          "package_name": "com.example.test_ocr_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwziwM-SSA_MakFzHrlSBgJCDaHLMlklw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:470663779758:android:e51822ad69d778dfbde43f",
+        "android_client_info": {
+          "package_name": "com.example.test_udemy_reminder_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwziwM-SSA_MakFzHrlSBgJCDaHLMlklw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
