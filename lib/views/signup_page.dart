@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../components/rounded_password_field.dart';
 import '../components/rounded_text_field.dart';
 import '../models/signup_model.dart';
 
@@ -32,19 +33,32 @@ class SignupPage extends ConsumerWidget {
             borderColor: Colors.black,
           ),
           const SizedBox(height: 10),
-          TextFormField(
-            keyboardType: TextInputType.visiblePassword,
-            controller: passwordEditingController,
+
+          RoundedPasswordField(
             onChanged: (text) => signupModel.password = text,
-            //
+            controller: passwordEditingController,
             obscureText: signupModel.isObscure,
-            decoration: InputDecoration(
-              suffix: InkWell(
-                onTap: signupModel.toggleIsObscure,
-                child: (signupModel.isObscure) ? const Icon(Icons.visibility_off) : const Icon(Icons.visibility),
-              ),
-            ),
+            toggleIsObscureText: signupModel.toggleIsObscure,
+            color: Colors.white,
+            borderColor: Colors.black,
+            shadowColor: Colors.purpleAccent,
           ),
+
+          // TextFormField(
+          //   keyboardType: TextInputType.visiblePassword,
+          //   controller: passwordEditingController,
+          //   onChanged: (text) => signupModel.password = text,
+          //   //
+          //   obscureText: signupModel.isObscure,
+          //   decoration: InputDecoration(
+          //     suffix: InkWell(
+          //       onTap: signupModel.toggleIsObscure,
+          //       child: (signupModel.isObscure)
+          //           ? const Icon(Icons.visibility_off)
+          //           : const Icon(Icons.visibility),
+          //     ),
+          //   ),
+          // ),
         ],
       ),
       floatingActionButton: FloatingActionButton(

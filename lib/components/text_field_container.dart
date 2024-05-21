@@ -21,7 +21,7 @@ class TextFieldContainer extends StatelessWidget {
           color: color,
           border: Border.all(color: borderColor),
           borderRadius: BorderRadius.circular(16),
-          boxShadow: [BoxShadow(color: shadowColor, blurRadius: 8, offset: const Offset(0, 0))],
+          boxShadow: [BoxShadow(color: shadowColor, blurRadius: 8)],
         ),
         child: child,
       ),
