@@ -9,6 +9,7 @@ class FirestoreUser with _$FirestoreUser {
   const factory FirestoreUser({
     required String userName,
     required String uid,
+    required String email,
     required dynamic createdAt,
     required dynamic updatedAt,
   }) = _FirestoreUser;

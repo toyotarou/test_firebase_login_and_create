@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors_in_immutables, unnecessary_await_in_return
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -21,13 +23,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
 class MyHomePage extends ConsumerWidget {
-  const MyHomePage({super.key, required this.title});
+  MyHomePage({super.key, required this.title});
 
   final String title;
 
@@ -36,29 +38,37 @@ class MyHomePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final mainModel = ref.watch(mainProvider);
 
+    final emailEditingController = TextEditingController(text: mainModel.email);
+    final passwordEditingController = TextEditingController(text: mainModel.password);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              mainModel.counter.toString(),
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
+      body: Column(
+        children: [
+          const SizedBox(height: 10),
+          TextFormField(
+            keyboardType: TextInputType.emailAddress,
+            controller: emailEditingController,
+            onChanged: (text) => mainModel.email = text,
+          ),
+          const SizedBox(height: 10),
+          TextFormField(
+            keyboardType: TextInputType.visiblePassword,
+            controller: passwordEditingController,
+            onChanged: (text) => mainModel.password = text,
+          ),
+          const SizedBox(height: 10),
+          Center(
+            child: (mainModel.currentUser == null) ? const Text('null') : const Text('not null'),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
-//        onPressed: mainModel.incrementCounter,
-
-        onPressed: () async => await mainModel.createUser(context: context),
-
+        onPressed: () async {
+          return await mainModel.createUser(context: context);
+        },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),

@@ -10,6 +10,7 @@ _$FirestoreUserImpl _$$FirestoreUserImplFromJson(Map<String, dynamic> json) =>
     _$FirestoreUserImpl(
       userName: json['userName'] as String,
       uid: json['uid'] as String,
+      email: json['email'] as String,
       createdAt: json['createdAt'],
       updatedAt: json['updatedAt'],
     );
@@ -18,6 +19,7 @@ Map<String, dynamic> _$$FirestoreUserImplToJson(_$FirestoreUserImpl instance) =>
     <String, dynamic>{
       'userName': instance.userName,
       'uid': instance.uid,
+      'email': instance.email,
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
     };
