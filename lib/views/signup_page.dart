@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../components/rounded_text_field.dart';
 import '../models/signup_model.dart';
 
 class SignupPage extends ConsumerWidget {
@@ -23,10 +24,12 @@ class SignupPage extends ConsumerWidget {
       body: Column(
         children: [
           const SizedBox(height: 10),
-          TextFormField(
-            keyboardType: TextInputType.emailAddress,
-            controller: emailEditingController,
+          RoundedTextField(
+            keybordType: TextInputType.emailAddress,
             onChanged: (text) => signupModel.email = text,
+            controller: emailEditingController,
+            color: Colors.white,
+            borderColor: Colors.black,
           ),
           const SizedBox(height: 10),
           TextFormField(
@@ -42,16 +45,11 @@ class SignupPage extends ConsumerWidget {
               ),
             ),
           ),
-          const SizedBox(height: 10),
-          Center(
-            child: (signupModel.currentUser == null) ? const Text('null') : const Text('not null'),
-          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async => await signupModel.createUser(context: context),
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.details),
       ),
     );
   }
