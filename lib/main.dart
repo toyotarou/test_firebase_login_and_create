@@ -58,6 +58,15 @@ class MyHomePage extends ConsumerWidget {
             keyboardType: TextInputType.visiblePassword,
             controller: passwordEditingController,
             onChanged: (text) => mainModel.password = text,
+
+            //
+            obscureText: mainModel.isObscure,
+            decoration: InputDecoration(
+              suffix: InkWell(
+                onTap: mainModel.toggleIsObscure,
+                child: (mainModel.isObscure) ? const Icon(Icons.visibility_off) : const Icon(Icons.visibility),
+              ),
+            ),
           ),
           const SizedBox(height: 10),
           Center(

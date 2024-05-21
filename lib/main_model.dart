@@ -60,4 +60,13 @@ class MainModel extends ChangeNotifier {
       debugPrint(e.toString());
     }
   }
+
+  ///
+
+  bool isObscure = true;
+
+  void toggleIsObscure() {
+    isObscure = !isObscure;
+    notifyListeners();
+  }
 }
