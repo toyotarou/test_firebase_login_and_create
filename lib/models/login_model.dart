@@ -28,4 +28,11 @@ class LoginModel extends ChangeNotifier {
     isObscure = !isObscure;
     notifyListeners();
   }
+
+  ///
+  Future<void> logout() async {
+    await FirebaseAuth.instance.signOut();
+    currentUser = FirebaseAuth.instance.currentUser;
+    notifyListeners();
+  }
 }

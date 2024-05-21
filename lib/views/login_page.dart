@@ -41,6 +41,21 @@ class LoginPage extends ConsumerWidget {
           ),
           const SizedBox(height: 10),
           Center(child: (loginModel.currentUser == null) ? const Text('null') : const Text('not null')),
+          const SizedBox(height: 50),
+          ElevatedButton(onPressed: loginModel.logout, child: const Text('logout')),
+          const SizedBox(height: 50),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(backgroundColor: Colors.redAccent),
+            onPressed: () {
+              emailEditingController.text = 'toyohide0521@test.com';
+              passwordEditingController.text = 'password';
+
+              loginModel
+                ..email = 'toyohide0521@test.com'
+                ..password = 'password';
+            },
+            child: const Text('dummy'),
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
